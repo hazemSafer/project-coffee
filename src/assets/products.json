@@ -1,0 +1,124 @@
+[
+  {
+    "category": "Food",
+    "products": [
+      { 
+        "name": "Cheeseburger", 
+        "price": 5.5, 
+        "image": "assets/images/cheeseburger.jpg",
+        "supplements": []
+      },
+      { 
+        "name": "Spaghetti Bolognese", 
+        "price": 8.0, 
+        "image": "assets/images/spaghetti.jpg",
+        "supplements": ["Parmesan", "Extra Viande", "Basilic"]
+      },
+      { 
+        "name": "Chicken Nuggets", 
+        "price": 6.5, 
+        "image": "assets/images/nuggets.jpg",
+        "supplements": ["Sauce Barbecue", "Sauce Miel Moutarde", "Ketchup"]
+      },
+      { 
+        "name": "Veggie Pizza", 
+        "price": 10.0, 
+        "image": "assets/images/veggie-pizza.jpg",
+        "supplements": ["Fromage", "Champignons", "Poivrons"]
+      }
+    ]
+  },
+  {
+    "category": "Boissons Chaudes",
+    "products": [
+      { 
+        "name": "Café Latte", 
+        "price": 3.5, 
+        "image": "assets/images/cafe-latte.jpg",
+        "supplements": []
+      },
+      { 
+        "name": "Espresso", 
+        "price": 2.5, 
+        "image": "assets/images/espresso.jpg",
+        "supplements": []
+      },
+      { 
+        "name": "Chocolat Chaud", 
+        "price": 4.0, 
+        "image": "assets/images/chocolat-chaud.jpg",
+        "supplements": ["Chantilly", "Caramel", "Cacao"]
+      },
+      { 
+        "name": "Thé Vert", 
+        "price": 2.5, 
+        "image": "assets/images/the-vert.jpg",
+        "supplements": []
+      },
+      { 
+        "name": "Thé Rouge", 
+        "price": 2.5, 
+        "image": "assets/images/the-vert.jpg",
+        "supplements": []
+      }
+    ]
+  },
+  {
+    "category": "Boissons Froides",
+    "products": [
+      { 
+        "name": "Jus d'Orange", 
+        "price": 4.0, 
+        "image": "assets/images/jus-orange.jpg",
+        "supplements": []
+      },
+      { 
+        "name": "Smoothie Fraise", 
+        "price": 5.0, 
+        "image": "assets/images/smoothie-fraise.jpg",
+        "supplements": ["Chantilly", "Miel"]
+      },
+      { 
+        "name": "Limonade", 
+        "price": 3.0, 
+        "image": "assets/images/limonade.jpg",
+        "supplements": []
+      },
+      { 
+        "name": "Coca-Cola", 
+        "price": 2.5, 
+        "image": "assets/images/coca-cola.jpg",
+        "supplements": []
+      }
+    ]
+  },
+  {
+    "category": "Petit Déjeuner",
+    "products": [
+      { 
+        "name": "Croissant", 
+        "price": 1.5, 
+        "image": "assets/images/croissant.jpg",
+        "supplements": ["Confiture", "Nutella", "Miel"]
+      },
+      { 
+        "name": "Pain au Chocolat", 
+        "price": 2.0, 
+        "image": "assets/images/pain-chocolat.jpg",
+        "supplements": ["Crème Chantilly", "Nutella"]
+      },
+      { 
+        "name": "Brioche", 
+        "price": 2.5, 
+        "image": "assets/images/brioche.jpg",
+        "supplements": ["Confiture", "Beurre", "Miel"]
+      },
+      { 
+        "name": "Toast Beurre", 
+        "price": 1.8, 
+        "image": "assets/images/toast-beurre.jpg",
+        "supplements": ["Confiture", "Fromage", "Miel"]
+      }
+    ]
+  }
+]

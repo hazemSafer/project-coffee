@@ -1,0 +1,63 @@
+<div class="basket-container">
+    <!-- Empty Basket Message -->
+    <div *ngIf="orderItems.length === 0" class="empty-basket">
+        <img [src]="'assets/images/basket.png'" alt="Basket" class="basket-icon" style="height: 70px;">
+        <p>Votre commande est vide</p>
+    </div>
+
+    <!-- Basket List -->
+    <ul *ngIf="orderItems.length > 0" class="basket-list">
+        <li *ngFor="let item of orderItems; let i = index" class="basket-item">
+            <div class="basket-item-content">
+                <span class="item-name">{{ item.name }}</span> 
+                <span class="item-price"> - €{{ item.price.toFixed(2) }}</span>
+            </div>
+
+            <!-- Quantity Controls -->
+            <div class="quantity-controls">
+                <button (click)="decreaseQuantity(i)">➖</button>
+                <span class="quantity">{{ item.quantity }}</span>
+                <button (click)="increaseQuantity(i)">➕</button>
+            </div>
+
+            <!-- Remove Button -->
+            <button class="remove-btn" (click)="decreaseQuantity(i)">🗑️</button>
+
+            <!-- Show Add Supplement Button only for food items -->
+            <button class="supplement-btn" *ngIf="item.supplements !== undefined" (click)="toggleSupplements(i)">
+                ➕ Ajouter un supplément
+            </button>
+
+            <!-- Supplement Selection -->
+            <div *ngIf="item.showSupplements" class="supplement-list">
+                <p>Choisissez un supplément :</p>
+                <button *ngFor="let supplement of availableSupplements" 
+                        class="supplement-option" 
+                        (click)="addSupplement(i, supplement)">
+                    {{ supplement }}
+                </button>
+            </div>
+
+            <!-- Display Selected Supplements -->
+            <div *ngIf="item.supplements?.length" class="selected-supplements">
+                <strong>Suppléments :</strong>
+                <span *ngFor="let supplement of item.supplements">{{ supplement }} </span>
+            </div>
+        </li>
+    </ul>
+
+    <!-- Total Price -->
+    <div *ngIf="orderItems.length > 0" class="total-price">
+        <strong>Total: €{{ getTotalPrice().toFixed(2) }}</strong>
+    </div>
+
+    <!-- Validation Button -->
+    <div class="basket-footer">
+        <button 
+            class="validate-btn"
+            [disabled]="orderItems.length === 0"
+            (click)="validateOrder()">
+            ✅ Valider votre commande
+        </button>
+    </div>
+</div>

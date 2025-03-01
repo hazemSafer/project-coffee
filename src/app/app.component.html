@@ -1,0 +1,54 @@
+<!-- Header Section -->
+<app-header [totalPrice]="totalPrice"></app-header>
+
+<!-- Main Content Section -->
+<div class="main-content d-flex">
+    <!-- Basket Component -->
+    <app-basket 
+        [orderItems]="orderItems" 
+        (orderUpdated)="calculateTotal()" 
+        (orderValidated)="handleOrderValidation()">
+    </app-basket>
+
+    <!-- Category Cards Section -->
+    <div class="menu-section">
+        <!-- Title and Description -->
+        <div class="menu-header">
+            <h2 class="section-title">🍽️ Un Menu Riche et Varié</h2>
+            <p class="section-description">
+                Profitez d'une sélection de plats savoureux et de boissons raffinées, conçus pour satisfaire toutes vos envies.
+            </p>
+        </div>
+
+        <!-- Category Cards -->
+        <div class="cards-grid">
+            <div class="card" *ngFor="let category of categories" (click)="onCategoryClick(category.category)">
+                <div class="card-inner">
+                    <!-- Background Image -->
+                    <div class="background-image" [style.backgroundImage]="'url(' + getCategoryImage(category.category) + ')'"></div>
+
+                    <!-- Main Image -->
+                    <img class="main-image" [src]="getCategoryImage(category.category)" alt="{{ category.category }}">
+
+                    <!-- Card Content -->
+                    <div class="card-content">
+                        <h3>{{ category.category }}</h3>
+                        <p>{{ category.products.length }} produits disponibles</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product List Section (Shown After Category Click) -->
+<div *ngIf="products.length > 0" class="products-section">
+    <h2 class="section-title">🛒 Produits Disponibles</h2>
+    
+    <!-- Use the ProductsComponent to display products -->
+    <app-products
+        [products]="products" 
+        (addToBasket)="addToOrder($event)">
+    </app-products>
+</div>
+
+</div>

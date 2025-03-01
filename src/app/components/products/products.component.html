@@ -1,0 +1,16 @@
+<div *ngIf="products.length > 0" class="products-grid">
+  <div class="product-card" *ngFor="let product of products">
+      <img [src]="product.image || 'assets/images/placeholder.jpg'" alt="{{ product.name }}" class="product-image">
+      <h4>{{ product.name }}</h4>
+      <p>Prix: {{ product.price | currency:'EUR' }}</p>
+      
+      <!-- Add to basket button -->
+      <button (click)="addProductToBasket(product)">🛒 Ajouter au panier</button>
+
+      
+  </div>
+</div>
+
+<div *ngIf="products.length === 0" class="no-products">
+  <p>Aucun produit disponible pour cette catégorie.</p>
+</div>
