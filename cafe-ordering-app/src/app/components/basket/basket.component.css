@@ -1,0 +1,103 @@
+/* Basket Container */
+.basket-container {
+    width: 320px;             /* Fixed width for the basket */
+    height: 600px;            /* Adjusted height */
+    background-color: #512b04;   /* Dark background for contrast */
+    border-radius: 10px;      /* Rounded corners */
+    padding: 20px;            /* Inner spacing */
+    margin-left: 50px;        /* Space from the left */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Soft shadow for depth */
+    color: white;
+    overflow-y: auto;         /* Scroll when content exceeds height */
+}
+
+/* Empty Basket Styling */
+.empty-basket {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+    font-size: 22px;
+    opacity: 0.8;
+}
+
+/* Basket Icon */
+.basket-icon {
+    width: 120px;
+    margin-bottom: 10px;
+    opacity: 0.7;
+}
+
+/* Basket List Styling */
+.basket-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+/* Basket Item Styling */
+.basket-item {
+    display: flex;            /* Flexbox for alignment */
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 10px;
+    border-bottom: 1px solid #444;
+    font-size: 18px;
+}
+
+/* Last item without border */
+.basket-item:last-child {
+    border-bottom: none;
+}
+
+/* Remove Item Button */
+.remove-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.remove-btn:hover {
+    color: red;
+    transform: scale(1.2);
+}
+
+/* Total Price Section */
+.total-section {
+    margin: 10px 0;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-align: right;
+    padding-right: 10px;
+}
+
+/* Validation Button */
+.validate-btn {
+    background-color: #805b43;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.validate-btn:hover {
+    background-color: #5a3c2a;
+    transform: scale(1.05);
+}
+
+.validate-btn:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+}

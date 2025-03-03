@@ -20,29 +20,38 @@
                 <button (click)="increaseQuantity(i)">➕</button>
             </div>
 
-            <!-- Remove Button -->
+            
             <button class="remove-btn" (click)="decreaseQuantity(i)">🗑️</button>
 
-            <!-- Show Add Supplement Button only for food items -->
-            <button class="supplement-btn" *ngIf="item.supplements !== undefined" (click)="toggleSupplements(i)">
-                ➕ Ajouter un supplément
+       
+           <button class="supplement-btn" (click)="toggleSupplements(i)">
+              ➕ Ajouter un supplément
+           </button>
+
+
+           <div *ngIf="item.showSupplements" class="supplement-list">
+            <p>Choisissez vos suppléments :</p>
+            <button *ngFor="let supplement of availableSupplements" 
+                    class="supplement-option" 
+                    (click)="addSupplement(i, supplement)">
+              {{ supplement.name }} <!-- Only show the supplement name -->
             </button>
+          </div>
+          
 
-            <!-- Supplement Selection -->
-            <div *ngIf="item.showSupplements" class="supplement-list">
-                <p>Choisissez un supplément :</p>
-                <button *ngFor="let supplement of availableSupplements" 
-                        class="supplement-option" 
-                        (click)="addSupplement(i, supplement)">
-                    {{ supplement }}
-                </button>
-            </div>
 
-            <!-- Display Selected Supplements -->
+
+
             <div *ngIf="item.supplements?.length" class="selected-supplements">
-                <strong>Suppléments :</strong>
-                <span *ngFor="let supplement of item.supplements">{{ supplement }} </span>
+                    <strong>Suppléments :</strong>
+                    <span *ngFor="let supplement of item.supplements">
+                        {{ supplement.name }} (+{{ supplement.price | currency:'EUR' }})
+                    </span>  
             </div>
+
+
+
+
         </li>
     </ul>
 

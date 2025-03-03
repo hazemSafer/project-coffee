@@ -1,0 +1,11 @@
+
+<footer class="app-footer">
+    <div class="footer-content">
+      <div class="total-section">
+        <strong>🛒 TOTAL DE LA COMMANDE:</strong>
+        <span>{{ totalPrice | currency:'EUR' }}</span>
+      </div>
+      <button (click)="validateOrder()" class="validate-btn"> Valider votre commande</button>
+    </div>
+  </footer>
+  

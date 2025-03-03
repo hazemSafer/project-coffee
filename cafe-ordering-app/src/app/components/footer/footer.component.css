@@ -1,0 +1,46 @@
+.app-footer {
+    position: fixed ;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #805b43;
+    color: white;
+    padding: 10px 0;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Footer Content */
+.footer-content {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 13px;
+}
+
+/* Total Section */
+.total-section {
+    font-size: 1.2em;
+    color: white;
+}
+
+/* Validate Button */
+.validate-btn {
+    background-color: #3b2408;
+    color: #fffafa;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+.validate-btn:hover {
+    background-color: #7a512c;
+}

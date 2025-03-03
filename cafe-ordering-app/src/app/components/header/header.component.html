@@ -1,0 +1,19 @@
+<div class="header-container d-flex justify-content-between align-items-center p-3">
+    <!-- Logo and Logo Text on the left -->
+    <div class="d-flex align-items-center">
+        <img [src]="'assets/images/logo.png'" alt="Logo" style="height: 120px; margin-right: 10px;">
+        <img [src]="'assets/images/logo-text.png'" alt="Graines de Café" style="height: 750px;">
+        
+    </div>
+
+    <div class="total-section">
+        <!-- Total Image -->
+        <img [src]="'assets/images/total.png'" alt="Total" style="height: 50px; margin-right: 5px;">
+    
+        <!-- Styled 0.00 inside a brown box -->
+        <div class="total-price-box">
+            €{{ totalPrice.toFixed(2) }}
+        </div>
+    </div>
+
+</div>

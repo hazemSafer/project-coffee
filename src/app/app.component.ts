@@ -3,7 +3,7 @@ import { DataService } from './data.service';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './components/header/header.component';
 import { BasketComponent } from './components/basket/basket.component';
-import { ProductsComponent } from './components/products/products.component'; 
+import { ProductsComponent } from './components/products/products.component';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +14,12 @@ import { ProductsComponent } from './components/products/products.component';
 })
 export class AppComponent implements OnInit {
   totalPrice: number = 0;
-  orderItems: { name: string; price: number; supplements?: string[], quantity: number }[] = [];
+  orderItems: { 
+    name: string; 
+    price: number; 
+    quantity: number;
+    supplements?: { name: string; price: number }[]; 
+  }[] = [];
   categories: any[] = [];
   products: any[] = [];
   title: string = 'Cafe Ordering App';
@@ -58,37 +63,72 @@ export class AppComponent implements OnInit {
     this.products = selectedCategory ? selectedCategory.products : [];
   }
 
-  addToOrder(item: { name: string; price: number, supplements?: string[] }) {
-    // ✅ Check if the item is already in the basket
+  /**
+   * ✅ Add product to the basket
+   */
+  addToOrder(item: { name: string; price: number; supplements?: { name: string; price: number }[] }) {
+    const newItem = { 
+      name: item.name, 
+      price: item.price, 
+      supplements: item.supplements ? [...item.supplements] : [], 
+      quantity: 1 
+    };
+
     const existingItem = this.orderItems.find(orderItem => orderItem.name === item.name);
-    
+
     if (existingItem) {
-      existingItem.quantity += 1;  // Increase quantity if item exists
+      existingItem.quantity += 1;
+      item.supplements?.forEach(supplement => {
+        const existingSupplement = existingItem.supplements.find(s => s.name === supplement.name);
+        if (!existingSupplement) {
+          existingItem.supplements.push(supplement);
+        }
+      });
     } else {
-      this.orderItems.push({ ...item, quantity: 1 }); // Otherwise, add a new entry
+      this.orderItems.push(newItem);
     }
-    
-    this.calculateTotal();
+
+    this.getTotalPrice();  // Update total price after adding the item
   }
 
+  /**
+   * ✅ Add a supplement to an item in the basket
+   */
+  addSupplement(index: number, supplement: { name: string; price: number }): void {
+    const product = this.orderItems[index];
+
+    if (!product.supplements) {
+      product.supplements = [];  // Ensure the supplements array exists
+    }
+
+    if (!product.supplements.some(s => s.name === supplement.name)) {
+      product.supplements.push(supplement);
+    }
+
+    this.getTotalPrice();  // Update the total price when supplement is added
+  }
+
+  /**
+   * ✅ Correct total price calculation (only adds supplement cost when selected)
+   */
+  getTotalPrice(): void {
+    this.totalPrice = this.orderItems.reduce((sum, item) => {
+      let basePrice = item.price * item.quantity;  // Base price with quantity
+
+      let supplementCost = 0;
+      if (item.supplements && item.supplements.length > 0) {
+        supplementCost = item.supplements.reduce((sum, s) => sum + s.price, 0) * item.quantity;  // Add supplement cost
+      }
+
+      return sum + basePrice + supplementCost;  // Add base price + supplement cost
+    }, 0);
+  }
+
+  /**
+   * ✅ Toggle Supplements Visibility
+   */
   toggleSupplements(product: any) {
     product.showSupplements = !product.showSupplements;
   }
 
-  addSupplement(product: any, supplement: string) {
-    if (!product.supplements) {
-      product.supplements = [];
-    }
-    if (!product.supplements.includes(supplement)) {
-      product.supplements.push(supplement);
-    }
-    this.calculateTotal();
-  }
-
-  calculateTotal() {
-    this.totalPrice = this.orderItems.reduce((sum, item) => {
-      let supplementCost = item.supplements ? item.supplements.length * 0.50 : 0;
-      return sum + (item.price + supplementCost) * item.quantity;
-    }, 0);
-  }
 }

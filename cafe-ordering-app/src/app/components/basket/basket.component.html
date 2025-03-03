@@ -1,0 +1,30 @@
+<div class="basket-container">
+    <!-- Empty State (Initial) -->
+    <div *ngIf="orderItems.length === 0" class="empty-basket">
+        <img [src]="'assets/images/basket.png'" alt="Basket" class="basket-icon" style="height: 70px;">
+        <p>Votre commande est vide</p>
+    </div>
+
+    <!-- Filled State (When Items Are Added) -->
+    <ul *ngIf="orderItems.length > 0" class="basket-list">
+        <li *ngFor="let item of orderItems; let i = index" class="basket-item">
+            {{ item.name }} - €{{ item.price.toFixed(2) }}
+            <button class="remove-btn" (click)="removeItem(i)">🗑️</button>
+        </li>
+    </ul>
+
+    <!-- Total Price -->
+    <div *ngIf="orderItems.length > 0" class="total-price">
+        <strong>Total: €{{ getTotalPrice().toFixed(2) }}</strong>
+    </div>
+
+    <!-- Validation Button -->
+    <div class="basket-footer">
+        <button 
+            class="validate-btn"
+            [disabled]="orderItems.length === 0"
+            (click)="validateOrder()">
+            ✅ Valider votre commande
+        </button>
+    </div>
+</div>

@@ -5,26 +5,39 @@
       { 
         "name": "Cheeseburger", 
         "price": 5.5, 
-        "image": "assets/images/cheeseburger.jpg",
-        "supplements": []
+        
+        "supplements": [{"name": "frite", "price": 2},
+        {"name": "Double viande", "price": 3}]
       },
       { 
         "name": "Spaghetti Bolognese", 
         "price": 8.0, 
-        "image": "assets/images/spaghetti.jpg",
-        "supplements": ["Parmesan", "Extra Viande", "Basilic"]
+        
+        "supplements": [
+          {"name": "Parmesan", "price": 0.70},
+          {"name": "Extra Viande", "price": 1.50},
+          {"name": "Basilic", "price": 0.30}
+        ]
       },
       { 
         "name": "Chicken Nuggets", 
         "price": 6.5, 
-        "image": "assets/images/nuggets.jpg",
-        "supplements": ["Sauce Barbecue", "Sauce Miel Moutarde", "Ketchup"]
+        
+        "supplements": [
+          {"name": "Sauce Barbecue", "price": 0.40},
+          {"name": "Sauce Miel Moutarde", "price": 0.50},
+          {"name": "Ketchup", "price": 0.20}
+        ]
       },
       { 
         "name": "Veggie Pizza", 
         "price": 10.0, 
-        "image": "assets/images/veggie-pizza.jpg",
-        "supplements": ["Fromage", "Champignons", "Poivrons"]
+        
+        "supplements": [
+          {"name": "Fromage", "price": 0.60},
+          {"name": "Champignons", "price": 0.50},
+          {"name": "Poivrons", "price": 0.50}
+        ]
       }
     ]
   },
@@ -34,32 +47,24 @@
       { 
         "name": "Café Latte", 
         "price": 3.5, 
-        "image": "assets/images/cafe-latte.jpg",
+        
         "supplements": []
       },
       { 
         "name": "Espresso", 
         "price": 2.5, 
-        "image": "assets/images/espresso.jpg",
+        
         "supplements": []
       },
       { 
         "name": "Chocolat Chaud", 
         "price": 4.0, 
-        "image": "assets/images/chocolat-chaud.jpg",
-        "supplements": ["Chantilly", "Caramel", "Cacao"]
-      },
-      { 
-        "name": "Thé Vert", 
-        "price": 2.5, 
-        "image": "assets/images/the-vert.jpg",
-        "supplements": []
-      },
-      { 
-        "name": "Thé Rouge", 
-        "price": 2.5, 
-        "image": "assets/images/the-vert.jpg",
-        "supplements": []
+        
+        "supplements": [
+          {"name": "Chantilly", "price": 0.70},
+          {"name": "Caramel", "price": 0.50},
+          {"name": "Cacao", "price": 0.40}
+        ]
       }
     ]
   },
@@ -67,28 +72,31 @@
     "category": "Boissons Froides",
     "products": [
       { 
-        "name": "Jus d'Orange", 
-        "price": 4.0, 
+        "name": "Jus d'Orange",
+        "price": 4.0,
         "image": "assets/images/jus-orange.jpg",
         "supplements": []
       },
-      { 
-        "name": "Smoothie Fraise", 
-        "price": 5.0, 
+      {
+        "name": "Smoothie Fraise",
+        "price": 5.0,
         "image": "assets/images/smoothie-fraise.jpg",
-        "supplements": ["Chantilly", "Miel"]
+        "supplements": [
+          { "name": "Chantilly", "price": 0.70 },
+          { "name": "Miel", "price": 0.50 }
+        ]
       },
       { 
         "name": "Limonade", 
         "price": 3.0, 
-        "image": "assets/images/limonade.jpg",
-        "supplements": []
+        "image": "assets/images/limonade.jpg", 
+        "supplements": [] 
       },
       { 
         "name": "Coca-Cola", 
         "price": 2.5, 
-        "image": "assets/images/coca-cola.jpg",
-        "supplements": []
+        "image": "assets/images/coca-cola.jpg", 
+        "supplements": [] 
       }
     ]
   },
@@ -99,25 +107,40 @@
         "name": "Croissant", 
         "price": 1.5, 
         "image": "assets/images/croissant.jpg",
-        "supplements": ["Confiture", "Nutella", "Miel"]
+        "supplements": [
+          { "name": "Confiture", "price": 0.30 },
+          { "name": "Nutella", "price": 0.50 },
+          { "name": "Miel", "price": 0.20 }
+        ]
       },
       { 
         "name": "Pain au Chocolat", 
         "price": 2.0, 
         "image": "assets/images/pain-chocolat.jpg",
-        "supplements": ["Crème Chantilly", "Nutella"]
+        "supplements": [
+          { "name": "Crème Chantilly", "price": 0.60 },
+          { "name": "Nutella", "price": 0.50 }
+        ]
       },
       { 
         "name": "Brioche", 
         "price": 2.5, 
         "image": "assets/images/brioche.jpg",
-        "supplements": ["Confiture", "Beurre", "Miel"]
+        "supplements": [
+          { "name": "Confiture", "price": 0.30 },
+          { "name": "Beurre", "price": 0.20 },
+          { "name": "Miel", "price": 0.20 }
+        ]
       },
       { 
         "name": "Toast Beurre", 
         "price": 1.8, 
         "image": "assets/images/toast-beurre.jpg",
-        "supplements": ["Confiture", "Fromage", "Miel"]
+        "supplements": [
+          { "name": "Confiture", "price": 0.30 },
+          { "name": "Fromage", "price": 0.50 },
+          { "name": "Miel", "price": 0.20 }
+        ]
       }
     ]
   }

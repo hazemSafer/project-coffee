@@ -1,24 +1,20 @@
 <!-- Header Section -->
+
 <app-header [totalPrice]="totalPrice"></app-header>
 
 <!-- Main Content Section -->
 <div class="main-content d-flex">
     <!-- Basket Component -->
-<app-basket 
-  [orderItems]="orderItems" 
-  (orderUpdated)="getTotalPrice()" 
-  (orderValidated)="handleOrderValidation()">
-</app-basket>
-
-
+    <app-basket 
+    [orderItems]="orderItems" 
+    (orderValidated)="handleOrderValidation()">
+    </app-basket>
     <!-- Category Cards Section -->
     <div class="menu-section">
         <!-- Title and Description -->
         <div class="menu-header">
             <h2 class="section-title">🍽️ Un Menu Riche et Varié</h2>
-            <p class="section-description">
-                Profitez d'une sélection de plats savoureux et de boissons raffinées, conçus pour satisfaire toutes vos envies.
-            </p>
+            <p class="section-description">Profitez d'une sélection de plats savoureux et de boissons raffinées, conçus pour satisfaire toutes vos envies.</p>
         </div>
 
         <!-- Category Cards -->
@@ -40,16 +36,28 @@
             </div>
         </div>
     </div>
+        
+    
 
     <!-- Product List Section (Shown After Category Click) -->
-<div *ngIf="products.length > 0" class="products-section">
-    <h2 class="section-title">🛒 Produits Disponibles</h2>
-    
-    <!-- Use the ProductsComponent to display products -->
-    <app-products
-        [products]="products" 
-        (addToBasket)="addToOrder($event)">
-    </app-products>
+    <div *ngIf="products.length > 0" class="products-section">
+        <h2 class="section-title">🛒 Produits Disponibles</h2>
+        <div class="products-grid">
+            <div class="product-card" *ngFor="let product of products">
+                <div class="product-inner">
+                    <!-- Product Image -->
+                    <img [src]="product.image || 'assets/images/placeholder.jpg'" alt="{{ product.name }}" class="product-image">
+                    
+                    <!-- Product Info -->
+                    <div class="product-info">
+                        <h4>{{ product.name }}</h4>
+                        <p>Prix: {{ product.price | currency:'EUR' }}</p>
+                        <button class="add-btn" (click)="addToOrder(product)">🛒 Ajouter au panier</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
-</div>
+  

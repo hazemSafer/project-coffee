@@ -1,0 +1,57 @@
+/* Ensure logos align properly */
+/* Fixed Header Styling */
+/* Fixed Header Styling */
+.header-container {
+    position: fixed;         /* Ensure header stays fixed */
+    top: 0;                 /* Stick to the top of the viewport */
+    left: 0;
+    width: 100%;            /* Full width */
+    z-index: 1000;          /* Ensure it's above other elements */
+    background-color: white;/* Solid background to avoid transparency */
+    padding: 10px 20px;
+    
+}
+
+.d-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Spread items across the header */
+    padding: 0 20px; /* Add padding for better spacing */
+}
+
+/* Logo and Text Sizes */
+img {
+    height: auto;
+    max-height: 65px;
+}
+
+/* Reduce space between logo and text */
+.d-flex.align-items-center {
+    gap: 5px; /* Space between logo and text */
+}
+
+/* Right-align Total Image and Price */
+.total-section {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between total image and price */
+    margin-left: auto;
+    padding-right: 40px /* Push to the right */
+}
+
+/* Ensure total image height is balanced */
+.total-section img {
+    height: 30px;
+}
+
+
+/* Styling for the 0.00 box */
+.total-price-box {
+    background-color: #532e13; /* Brown background */
+    color: white;             /* White text */
+    padding: 5px 29px;        /* Padding around the text */
+    font-size: 30px;          /* Increase font size */
+    font-weight: bold;        /* Make it bold */
+    border-radius: 6px;       /* Rounded corners */
+    font-family: 'Roboto', sans-serif; /* Ensure consistent font */
+}

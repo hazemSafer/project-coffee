@@ -46,6 +46,7 @@
     cursor: pointer;
 }
 
+
 .quantity-controls button:hover {
     background: #6d3b21;
 }
@@ -61,6 +62,8 @@
     font-size: 14px;
     margin-top: 5px;
 }
+
+
 
 .supplement-btn:hover {
     background: #6d3b21;

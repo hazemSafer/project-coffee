@@ -1,0 +1,39 @@
+[
+    {
+      "category": "Food",
+      "products": [
+        { "name": "Cheeseburger", "price": 5.5, "image": "assets/images/cheeseburger.jpg" },
+        { "name": "Spaghetti Bolognese", "price": 8.0, "image": "assets/images/spaghetti.jpg" },
+        { "name": "Chicken Nuggets", "price": 6.5, "image": "assets/images/nuggets.jpg" },
+        { "name": "Veggie Pizza", "price": 10.0, "image": "assets/images/veggie-pizza.jpg" }
+      ]
+    },
+    {
+      "category": "Boissons Chaudes",
+      "products": [
+        { "name": "Café Latte", "price": 3.5, "image": "assets/images/cafe-latte.jpg" },
+        { "name": "Espresso", "price": 2.5, "image": "assets/images/espresso.jpg" },
+        { "name": "Chocolat Chaud", "price": 4.0, "image": "assets/images/chocolat-chaud.jpg" },
+        { "name": "Thé Vert", "price": 2.5, "image": "assets/images/the-vert.jpg" },
+        { "name": "Thé rouge", "price": 2.5, "image": "assets/images/the-vert.jpg" }
+      ]
+    },
+    {
+      "category": "Boissons Froides",
+      "products": [
+        { "name": "Jus d'Orange", "price": 4.0, "image": "assets/images/jus-orange.jpg" },
+        { "name": "Smoothie Fraise", "price": 5.0, "image": "assets/images/smoothie-fraise.jpg" },
+        { "name": "Limonade", "price": 3.0, "image": "assets/images/limonade.jpg" },
+        { "name": "Coca-Cola", "price": 2.5, "image": "assets/images/coca-cola.jpg" }
+      ]
+    },
+    {
+      "category": "Petit Déjeuner",
+      "products": [
+        { "name": "Croissant", "price": 1.5, "image": "assets/images/croissant.jpg" },
+        { "name": "Pain au Chocolat", "price": 2.0, "image": "assets/images/pain-chocolat.jpg" },
+        { "name": "Brioche", "price": 2.5, "image": "assets/images/brioche.jpg" },
+        { "name": "Toast Beurre", "price": 1.8, "image": "assets/images/toast-beurre.jpg" }
+      ]
+    }
+  ]
