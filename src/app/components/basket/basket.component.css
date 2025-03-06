@@ -29,44 +29,41 @@
     font-size: 18px;
 }
 
-/* Quantity Controls */
-.quantity-controls {
+/* Item Content */
+.basket-item-content {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 10px;
-    margin-top: 5px;
 }
 
-.quantity-controls button {
-    background-color: #4a2c18;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
+/* Item Name */
+.item-name {
+    font-weight: bold;
+    color: #ffcc00;
 }
 
-
-.quantity-controls button:hover {
-    background: #6d3b21;
+/* Item Price */
+.item-price {
+    color: #e0e0e0;
+    font-size: 16px;
 }
 
-/* Supplement Button */
-.supplement-btn {
-    background: #4a2c18;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
+/* Quantity Display */
+.item-quantity {
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffcc00;
+}
+
+/* Selected Supplements */
+.selected-supplements {
     font-size: 14px;
+    color: #e0e0e0;
     margin-top: 5px;
 }
 
-
-
-.supplement-btn:hover {
-    background: #6d3b21;
+.selected-supplements strong {
+    color: #ffcc00;
 }
 
 /* Remove Button */
@@ -82,4 +79,58 @@
 .remove-btn:hover {
     color: red;
     transform: scale(1.2);
+}
+
+/* Total Price Section */
+.total-price {
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Validation Button */
+.basket-footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.validate-btn {
+    background-color: #ffcc00;
+    color: black;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.validate-btn:hover {
+    background-color: #e0b000;
+}
+
+/* Empty Basket */
+.empty-basket {
+    text-align: center;
+    padding: 20px;
+    font-size: 18px;
+    color: #ddd;
+}
+
+.basket-icon {
+    display: block;
+    margin: 0 auto;
+    opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .basket-container {
+        width: 100%;
+        margin-left: 0;
+        height: auto;
+    }
 }

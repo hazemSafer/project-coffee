@@ -4,15 +4,15 @@
 <!-- Main Content Section -->
 <div class="main-content d-flex">
     <!-- Basket Component -->
-<app-basket 
-  [orderItems]="orderItems" 
-  (orderUpdated)="getTotalPrice()" 
-  (orderValidated)="handleOrderValidation()">
-</app-basket>
+    <app-basket 
+      [orderItems]="orderItems" 
+      (orderUpdated)="getTotalPrice()" 
+      (orderValidated)="handleOrderValidation()">
+    </app-basket>
 
-
-    <!-- Category Cards Section -->
-    <div class="menu-section">
+    
+     <!-- Category Cards Section -->
+     <div class="menu-section">
         <!-- Title and Description -->
         <div class="menu-header">
             <h2 class="section-title">🍽️ Un Menu Riche et Varié</h2>
@@ -42,14 +42,13 @@
     </div>
 
     <!-- Product List Section (Shown After Category Click) -->
-<div *ngIf="products.length > 0" class="products-section">
-    <h2 class="section-title">🛒 Produits Disponibles</h2>
-    
-    <!-- Use the ProductsComponent to display products -->
-    <app-products
-        [products]="products" 
-        (addToBasket)="addToOrder($event)">
-    </app-products>
-</div>
-
+    <div *ngIf="products.length > 0" class="products-section">
+        <h2 class="section-title">🛒 Produits Disponibles</h2>
+        
+        <!-- Use the ProductsComponent to display products -->
+        <app-products
+            [products]="products" 
+            (addToBasket)="addToOrder($event)">
+        </app-products>
+    </div>
 </div>

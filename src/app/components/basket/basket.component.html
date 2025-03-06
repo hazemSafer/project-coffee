@@ -11,47 +11,19 @@
             <div class="basket-item-content">
                 <span class="item-name">{{ item.name }}</span> 
                 <span class="item-price"> - €{{ item.price.toFixed(2) }}</span>
+                <span class="item-quantity"> x{{ item.quantity }}</span>
             </div>
 
-            <!-- Quantity Controls -->
-            <div class="quantity-controls">
-                <button (click)="decreaseQuantity(i)">➖</button>
-                <span class="quantity">{{ item.quantity }}</span>
-                <button (click)="increaseQuantity(i)">➕</button>
-            </div>
-
-            
-            <button class="remove-btn" (click)="decreaseQuantity(i)">🗑️</button>
-
-       
-           <button class="supplement-btn" (click)="toggleSupplements(i)">
-              ➕ Ajouter un supplément
-           </button>
-
-
-           <div *ngIf="item.showSupplements" class="supplement-list">
-            <p>Choisissez vos suppléments :</p>
-            <button *ngFor="let supplement of availableSupplements" 
-                    class="supplement-option" 
-                    (click)="addSupplement(i, supplement)">
-              {{ supplement.name }} <!-- Only show the supplement name -->
-            </button>
-          </div>
-          
-
-
-
-
+            <!-- Display Supplements if Selected -->
             <div *ngIf="item.supplements?.length" class="selected-supplements">
-                    <strong>Suppléments :</strong>
-                    <span *ngFor="let supplement of item.supplements">
-                        {{ supplement.name }} (+{{ supplement.price | currency:'EUR' }})
-                    </span>  
+                <strong>Suppléments :</strong>
+                <span *ngFor="let supplement of item.supplements">
+                    {{ supplement.name }} (+{{ supplement.price | currency:'EUR' }})
+                </span>  
             </div>
 
-
-
-
+            <!-- Remove Item Button -->
+            <button class="remove-btn" (click)="removeItem(i)">🗑️ Supprimer</button>
         </li>
     </ul>
 

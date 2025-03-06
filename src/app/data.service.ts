@@ -4,11 +4,18 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class DataService {
-  private jsonUrl = '/assets/data/products.json'; // ✅ Use only products.json
+  private jsonUrl = '/assets/products.json'; // Ensure this matches the correct path
 
-  async getCategories(): Promise<any[]> {
+  async getCategories(): Promise<{ 
+    category: string; 
+    products: { 
+      name: string; 
+      price: number; 
+      supplements?: { name: string; price: number }[] 
+    }[] 
+  }[]> {
     try {
-        const response = await fetch('./assets/products.json', {
+        const response = await fetch(this.jsonUrl, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
@@ -17,7 +24,7 @@ export class DataService {
         });
 
         if (!response.ok) {
-            console.error('❌ Failed to load JSON. Status: ${response.status}');
+            console.error(`❌ Failed to load JSON. Status: ${response.status}`);
             return [];
         }
 
@@ -36,37 +43,28 @@ export class DataService {
         console.error('❌ Error fetching categories:', error);
         return [];
     }
-}
+  }
 
-
-
-  // ✅ Extract supplements from products.json
+  // ✅ Extract unique supplements from products.json
   async getSupplementPrices(): Promise<{ name: string; price: number }[]> {
     try {
-        const categories: { 
-            category: string; 
-            products: { 
+        const categories = await this.getCategories();
+        const supplementsSet = new Set<string>(); // Using a Set to store unique supplement names
+        const supplementsList: { name: string; price: number }[] = [];
+
+        categories.forEach(category => {
+            category.products?.forEach((product: { 
                 name: string; 
                 price: number; 
                 supplements?: { name: string; price: number }[] 
-            }[] 
-        }[] = await this.getCategories();
-        
-        let supplementsList: { name: string; price: number }[] = [];
-
-        // ✅ Ensure category.products exists before looping
-        categories.forEach((category) => {
-            if (category.products && Array.isArray(category.products)) { // ✅ Check if products exists and is an array
-                category.products.forEach((product: { name: string; price: number; supplements?: { name: string; price: number }[] }) => {
-                    if (product.supplements && product.supplements.length > 0) {
-                        product.supplements.forEach((supplement: { name: string; price: number }) => {
-                            if (!supplementsList.some(s => s.name === supplement.name)) {
-                                supplementsList.push(supplement);
-                            }
-                        });
+            }) => {
+                product.supplements?.forEach((supplement: { name: string; price: number }) => {
+                    if (!supplementsSet.has(supplement.name)) {
+                        supplementsSet.add(supplement.name);
+                        supplementsList.push(supplement);
                     }
                 });
-            }
+            });
         });
 
         console.log('✅ Extracted Supplements:', supplementsList);
@@ -75,7 +73,5 @@ export class DataService {
         console.error('❌ Error extracting supplement prices:', error);
         return [];
     }
-}
-
-
+  }
 }

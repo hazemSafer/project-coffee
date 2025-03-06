@@ -23,7 +23,7 @@
     margin-bottom: 10px;
 }
 
-/* Add to Cart Button */
+/* Add to Basket Button */
 button {
     background-color: #007bff;
     color: white;
@@ -78,6 +78,35 @@ button:hover {
 
 .supplement-option:hover {
     background-color: #ffcc00;
+}
+
+/* Selected Supplements */
+.selected-supplements {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #4a2c18;
+    font-weight: bold;
+}
+
+/* Quantity Controls */
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.quantity-controls button {
+    background-color: #4a2c18;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.quantity-controls button:hover {
+    background: #6d3b21;
 }
 
 /* Responsive Adjustments */
